@@ -22,7 +22,7 @@ VALUES
 INSERT INTO categories 
     (name, slug, id_categories)
 VALUES 
-    ('Football','surf' , NULL),
+    ('Football','football' , NULL),
     ('Petit pont','petit-pont' , 1), 
     ('Crochet','crochet' , 1),
     ('Basket', 'basket', NULL),
@@ -59,7 +59,7 @@ VALUES
     '2014-03-19', 
     '2022-03-21',
     'https://s1.static-footeo.com/uploads/unionfossesfootball/Medias/0%20%20%20-%20robben__qdcn13.png',
-    FALSE,
+    TRUE,
     2,
     1),
 
@@ -98,7 +98,7 @@ INSERT INTO comments
     (content, createdAt, id_users, id_posts)
 VALUES
     ("Oh my God! Messi est le footBall", '2017-03-12',1,1),
-    ("Oh", '2010-03-12',2,1),
-    ("Baaaaaannngggg§", '2024-03-12',3,1);
+    ("Oh", '2010-03-12',2,2),
+    ("Baaaaaannngggg§", '2024-03-12',3,3);
 
     
