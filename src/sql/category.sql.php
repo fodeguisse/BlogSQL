@@ -4,7 +4,7 @@ function getAllCategories() {
     global $pdo;
 
     try {
-        $query = "SELECT id, name
+        $query = "SELECT *
         FROM categories
         
         ORDER BY name ASC";
@@ -19,3 +19,5 @@ function getAllCategories() {
     }
     
 }
+
+

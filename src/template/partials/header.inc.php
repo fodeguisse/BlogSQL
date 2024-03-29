@@ -29,6 +29,22 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=about">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=contact">Contact</a></li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                                Catégories
+                            </a>
+                            <div class="dropdown-menu">
+                                <?php foreach ($categories as $category){ ?>
+                                    <a href="?page=category&slug=<?= $category['slug'] ?>" class="list-group-item list-group-item-action">
+                                        <?= $category['name'] ?>
+                                    </a>
+                                <?php } ?>
+                                
+                                </div>
+                        </li>
+
                         <?php if (!isset($_SESSION['user'])) { ?>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=login">Login</a></li>
                     

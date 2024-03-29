@@ -13,8 +13,10 @@ $pdo = pdoConnect();
 require 'core/core.inc.php';
 require 'lib/pluralize.lib.php';
 require 'lib/flash.lib.php';
+require 'sql/category.sql.php';
 
 $page = DEFAULT_PAGE;
+$categories = getAllCategories();
 
 
 if (isset($_GET['page'])) {

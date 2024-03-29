@@ -23,7 +23,7 @@ $options = array(
 
 
 // pagination par defaut
-define("NB_PAGINATE",10);
+define("NB_PAGINATE",3);
 
 // constant pour la page d'accueil
 define("SITE_NAME","Le meilleur site de sport");

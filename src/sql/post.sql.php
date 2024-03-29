@@ -3,6 +3,8 @@
 function getAllPosts() {
     global $pdo;
 
+    
+
     try {
         $query = 'SELECT image, updatedAt, title, A.slug as postSlug, LEFT(A.content, 150) AS content, 
         name, B.slug as categorySlug, lastName, firstName, COUNT(D.id) AS nbComments
@@ -42,6 +44,33 @@ function getOnePost($slug) {
 
         $post = $cursor->fetch();
         return $post;    
+    } catch (PDOException $e) {
+        die($e->getMessage());
+    }
+    
+}
+
+function getPostsByCategory($slug) {
+    global $pdo;
+
+    try {
+        $query = 'SELECT image, updatedAt, title, A.slug as postSlug, LEFT(A.content, 150) AS content, 
+        name, B.slug as categorySlug, COUNT(D.id) AS nbComments
+        FROM posts A
+        INNER JOIN categories B ON A.id_categories = B.id
+        /*INNER JOIN users C ON id_users = C.id*/
+        LEFT JOIN comments D ON D.id_posts = A.id
+        WHERE active = TRUE AND B.slug = :slug
+        GROUP BY A.id
+        ORDER BY updatedAt DESC';
+
+    
+        $cursor = $pdo->prepare($query);
+        $cursor->bindValue(":slug", $slug, PDO::PARAM_STR);
+        $cursor->execute();
+
+        $posts = $cursor->fetchAll(PDO::FETCH_ASSOC);
+        return $posts;    
     } catch (PDOException $e) {
         die($e->getMessage());
     }

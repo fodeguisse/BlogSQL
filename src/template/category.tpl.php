@@ -3,7 +3,7 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-9">
-
+                <h2 class="row gx-4 gx-lg-5 justify-content-center">Catégorie : <?= $categoryName ?></h2>
                 <?php foreach ($posts as $post) { ?>
                     
                     <!-- Post preview-->
@@ -14,8 +14,6 @@
                             <h3 class="post-subtitle"><?= $post['content'] ?>...</h3>
                         </a>
                         <p class="post-meta">
-                            Régidé par
-                            <a href="#!"><?= $post['firstName'] . ' ' . $post['lastName'] ?></a>
                             <?= $post['updatedAt'] ?>
                             -Classé dans :  <?= $post['name'] ?>
                             <?php if ($post['nbComments'] > 0) { ?>
